@@ -1,0 +1,17 @@
+source_tasks:
+  birads:
+    source_dataset: VinDr-Mammo-breast
+    label_column: bi_rads
+    eval_level: exam
+  density:
+    source_dataset: EMBED
+    label_column: density
+    eval_level: image
+  cancer:
+    source_dataset: RSNA-site2
+    label_column: cancer_status
+    eval_level: exam
+required_mmap_files:
+  - metadata.parquet
+  - images_1024x768.npy
+

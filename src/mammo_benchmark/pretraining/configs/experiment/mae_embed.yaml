@@ -1,0 +1,27 @@
+# @package _global_
+
+defaults:
+  - override /trainer: reconstruction
+  - override /model: vit_base
+  - _self_
+
+experiment_name: mae_embed
+method_name: mae
+output_name: full_mae_${model.output_tag}_${data.image_size.0}x${data.image_size.1}_b${data.batch_size}x${trainer.num_devices}_gpu${trainer.num_devices}_lr${trainer.learning_rate}_wd${trainer.weight_decay}_mr${trainer.mask_ratio}_mm${trainer.masking_mode}_e${trainer.epochs}_${model.init_mode}
+trainer:
+  epochs: 500
+  mask_ratio: 0.15
+  masking_mode: informative_first
+  accumulate_grad_batches: 2
+  tissue_aware_crop: true
+  min_tissue_fraction: 0.3
+  online_probe:
+    enabled: true
+data:
+  batch_size: 64
+  num_workers: 12
+  augmentations:
+    mae_crop_scale: [0.25, 1.0]
+    mae_horizontal_flip: true
+    mae_color_jitter: 0.1
+    mae_color_jitter_prob: 0.3

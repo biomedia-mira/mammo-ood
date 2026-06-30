@@ -1,0 +1,23 @@
+checkpoint_root: /path/to/checkpoints
+adapted_checkpoint_root: /path/to/pretraining/output_ssl
+models:
+  natural_image_ssl:
+    - dinov2_vitb
+    - dinov3_vitb
+  general_medical_radiology:
+    - biomedclip_vitb_1024x768
+    - unimedclip_vitl14_base_1008x756_interp
+    - medsiglip_vit_1008x756_interp
+    - rad_dino_vitb
+    - xray_dino_vitl
+  mammography_adapted:
+    - dinov2_embed_vitb_in
+    - dinov3_embed_vitb_in
+    - mammo_mae_vitb_in
+  mammography_specific:
+    - mama_vitb
+    - glam_vitb
+    - mammo_clip_effnet_b5
+    - mammo_fm_batman_effnet_b5
+    - versamm_vitb
+

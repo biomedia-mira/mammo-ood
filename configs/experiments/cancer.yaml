@@ -1,0 +1,23 @@
+dataset: RSNA-site2
+task: CancerStatus
+ood_datasets:
+  - VinDr-Mammo-breast
+  - EMBED
+  - CBIS-DDSM-breast
+  - CDD-CESM
+  - CMMD
+  - DBT
+  - DMID
+  - MIAS
+  - MM
+  - NLBS
+  - OPTIMAM
+ood_test_only:
+  - OPTIMAM
+  - RSNA-site2
+lp_epochs: 15
+head_lr: 0.001
+head_wd: 0.0
+batch_alpha: 0.3
+early_stop_patience: 7
+

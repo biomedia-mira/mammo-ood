@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mammo-foundation-ood-benchmark"
+version = "0.1.0"
+description = "Frozen-backbone linear-probe benchmark for mammography foundation models under domain shift."
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mammo_benchmark = [
+    "pretraining/configs/*.yaml",
+    "pretraining/configs/*/*.yaml",
+    "pretraining/architectures/dinov2/configs/*.yaml",
+    "pretraining/architectures/dinov2/configs/train/*.yaml",
+    "pretraining/architectures/dinov3/configs/*.yaml",
+]
+MaMA = ["backbones/*.json"]

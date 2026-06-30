@@ -1,0 +1,21 @@
+dataset: EMBED
+task: Composition
+ood_datasets:
+  - VinDr-Mammo-breast
+  - BMCD
+  - CBIS-DDSM-breast
+  - CDD-CESM
+  - INbreast
+  - KAU-BCMD
+  - OPTIMAM
+  - DMID
+ood_test_only:
+  - EMBED
+  - OPTIMAM
+  - VinDr-Mammo-breast
+lp_epochs: 20
+head_lr: 0.001
+head_wd: 0.0
+batch_alpha: 0.0
+early_stop_patience: 8
+

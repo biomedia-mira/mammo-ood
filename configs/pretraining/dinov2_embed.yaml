@@ -1,0 +1,49 @@
+# @package _global_
+
+defaults:
+  - override /trainer: dinov2
+  - override /model: dinov2_vit_base_continued
+  - _self_
+
+experiment_name: dinov2_embed_continued_in_e60
+method_name: dinov2
+seed: 42
+output_name: ${experiment_name}_${model.output_tag}_${data.image_size.0}x${data.image_size.1}_b${data.batch_size}x${trainer.num_devices}_gpu${trainer.num_devices}_lr${trainer.learning_rate}_e${trainer.epochs}_${model.init_mode}
+trainer:
+  epochs: 60
+  learning_rate: 2e-5
+  min_learning_rate: 1.0e-6
+  drop_path_rate: 0.1
+  momentum_teacher: 0.994
+  layerwise_decay: 0.99
+  patch_embed_lr_mult: 0.5
+  normalization: half
+  warmup_epochs: 2
+  warmup_teacher_temp_epochs: 7
+  # Same role as DINOv3 trainer.weight_decay_end.
+  wd_end: 0.2
+  clip_grad: 3.0
+  freeze_last_layer_epochs: 1
+  centering: sinkhorn_knopp
+  ibot_separate_head: true
+  crops:
+    global_crops_scale: [0.32, 1.0]
+    local_crops_scale: [0.05, 0.32]
+    local_crops_number: 8
+    local_crops_size: [168, 126]
+  tissue_aware_crop: true
+  tissue_aware_mask: true
+  ibot_mask_ratio_min_max: [0.1, 0.2]
+  online_probe:
+    enabled: true
+data:
+  image_size: [504, 378]
+  batch_size: 28
+  num_workers: 6
+  input_channels: 3
+  augmentations:
+    resize: [504, 378]
+    random_color_jitter: 0.1
+    color_jitter_prob: 0.3
+    horizontal_flip: true
+    center_crop: [504, 378]

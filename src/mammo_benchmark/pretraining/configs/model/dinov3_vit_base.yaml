@@ -1,0 +1,6 @@
+name: vit_base
+output_tag: dinov3_vit_base
+patch_size: 16
+num_storage_tokens: 4
+init_mode: random
+init_ckpt: null

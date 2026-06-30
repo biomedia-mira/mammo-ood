@@ -1,0 +1,19 @@
+defaults:
+  - data: embed
+  - trainer: base
+  - model: vit_base
+  - _self_
+  - optional experiment: null
+
+experiment_name: null
+method_name: null
+output_root: outputs/pretraining
+output_name: null
+seed: 42
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+  job:
+    chdir: false

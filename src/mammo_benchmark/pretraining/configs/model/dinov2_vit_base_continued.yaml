@@ -1,0 +1,6 @@
+name: dino_vit_base
+output_tag: dinov2_vit_base_continued
+patch_size: 14
+num_register_tokens: 4
+init_mode: ssl
+init_ckpt: ${oc.env:DINOV2_INIT_CKPT,checkpoints/dinov2/dinov2_vitb14_reg4_pretrain.pth}

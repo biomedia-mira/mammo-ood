@@ -1,0 +1,5 @@
+name: facebook/vit-mae-base
+output_tag: vit_base
+init_mode: ssl
+init_ckpt: ${oc.env:MAE_INIT_CKPT,checkpoints/mae/mae_pretrain_vit_base.pth}
+init_ckpt_format: official

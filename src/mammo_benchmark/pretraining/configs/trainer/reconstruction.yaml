@@ -1,0 +1,9 @@
+defaults:
+  - base
+
+epochs: 500
+learning_rate: 4e-4
+weight_decay: 0.05
+accumulate_grad_batches: 1
+checkpoint_metric: val_loss
+checkpoint_mode: min

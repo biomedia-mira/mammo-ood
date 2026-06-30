@@ -1,0 +1,44 @@
+# @package _global_
+
+defaults:
+  - override /trainer: dinov3
+  - override /model: dinov3_vit_base_continued
+  - _self_
+
+experiment_name: dinov3_embed_continued_preddp20_scaled_e60_ibot075
+method_name: dinov3
+seed: 42
+output_name: ${experiment_name}_${model.output_tag}_${data.image_size.0}x${data.image_size.1}_b${data.batch_size}x${trainer.num_devices}_gpu${trainer.num_devices}_lr${trainer.learning_rate}_e${trainer.epochs}_${model.init_mode}
+trainer:
+  epochs: 60
+  learning_rate: 2.0e-5
+  drop_path_rate: 0.1
+  min_learning_rate: 1.0e-6
+  warmup_epochs: 6
+  warmup_teacher_temp_epochs: 21
+  momentum_teacher: 0.992
+  weight_decay_end: 0.1
+  ibot_loss_weight: 0.75
+  clip_grad: 3.0
+  freeze_last_layer_epochs: 1
+  layerwise_decay: 0.9
+  patch_embed_lr_mult: 0.2
+  normalization: imagenet
+  tissue_aware_crop: true
+  tissue_aware_mask: true
+  ibot_mask_ratio_min_max: [0.1, 0.3]
+  crops:
+    global_crops_scale: [0.40, 1.0]
+    local_crops_scale: [0.15, 0.40]
+    local_crops_number: 8
+    local_crops_size: [192, 144]
+  online_probe:
+    enabled: true
+data:
+  batch_size: 28
+  num_workers: 6
+  input_channels: 3
+  augmentations:
+    random_color_jitter: 0.1
+    color_jitter_prob: 0.3
+    horizontal_flip: true

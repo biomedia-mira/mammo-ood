@@ -1,0 +1,6 @@
+name: vit_base
+output_tag: dinov3_vit_base_continued
+patch_size: 16
+num_storage_tokens: 4
+init_mode: ssl
+init_ckpt: ${oc.env:DINOV3_INIT_CKPT,checkpoints/dinov3/dinov3_vitb16_pretrain_lvd1689m-73cec8be.pth}
