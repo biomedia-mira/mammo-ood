@@ -2,7 +2,9 @@
 
 This repository contains code for the paper:
 
-> _Benchmarking the Robustness of Foundation Models for Mammography under Domain Shift_. Deep-Brea3th 2026: 3rd Deep Breast Workshop on AI and Imaging for Diagnostic and Treatment Challenges in Breast Care.
+> Son-Giang Nguyen, Raghav Mehta, Emma A.M. Stanley, Tian Xia, Thi Hao Nguyen, Huy-Hieu Pham, and Ben Glocker. _Benchmarking the Robustness of Foundation Models for Mammography under Domain Shift_. Deep-Brea3th 2026: 3rd Deep Breast Workshop on AI and Imaging for Diagnostic and Treatment Challenges in Breast Care.
+
+Camera-ready repository: <https://github.com/biomedia-mira/mammo-ood>
 
 ## Abstract
 
@@ -103,9 +105,9 @@ The 15 evaluated backbones are listed in `configs/models.yaml`; the executable r
 ## Citation
 
 ```bibtex
-@inproceedings{anonymous2026mammoood,
+@inproceedings{nguyen2026mammoood,
   title     = {Benchmarking the Robustness of Foundation Models for Mammography under Domain Shift},
-  author    = {Anonymous Authors},
+  author    = {Nguyen, Son-Giang and Mehta, Raghav and Stanley, Emma A.M. and Xia, Tian and Nguyen, Thi Hao and Pham, Huy-Hieu and Glocker, Ben},
   booktitle = {Deep-Brea3th 2026: 3rd Deep Breast Workshop on AI and Imaging for Diagnostic and Treatment Challenges in Breast Care},
   year      = {2026}
 }
